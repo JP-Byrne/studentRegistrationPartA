@@ -11,10 +11,12 @@ public class Student {
     private List<CourseProgramme> courses = new ArrayList<CourseProgramme>();
     private List<Modules> modules = new ArrayList<Modules>();
 
-    public Student(String name, DateTime DOB, int ID) {
+    public Student(String name, DateTime DOB, int ID,List<CourseProgramme> courses) {
         this.name = name;
         this.DOB = DOB;
         this.ID = ID;
+        this.courses = courses;
+        //this.modules = modules;
         setAge();
         String st = name + age;
         this.username= st.replaceAll("\\s+",""); // Removes white space
