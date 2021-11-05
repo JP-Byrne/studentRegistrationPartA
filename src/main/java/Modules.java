@@ -3,19 +3,19 @@ import java.util.List;
 
 public class Modules {
 
-    private final String name;
+    private final String moduleName;
     private final String ID;
     List<Student> students = new ArrayList<Student>();
 
-    private List<CourseProgramme> courses = new ArrayList<CourseProgramme>();
+    //private List<CourseProgramme> courses = new ArrayList<CourseProgramme>();
 
-    public Modules(String name, String ID) {
-        this.name = name;
+    public Modules(String moduleName, String ID ) {
+        this.moduleName = moduleName;
         this.ID = ID;
     }
 
-    public String getName() {
-        return name;
+    public String getModuleName() {
+        return moduleName;
     }
 
     public String getID() {
@@ -26,9 +26,6 @@ public class Modules {
         return students;
     }
 
-    public List<CourseProgramme> getCourses() {
-        return courses;
-    }
 
     public void addStudent(Student s) {
         students.add(s);
@@ -36,6 +33,6 @@ public class Modules {
 
     @Override
     public String toString(){
-        return name;
+        return moduleName;
     }
 }

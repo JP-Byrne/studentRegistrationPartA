@@ -3,28 +3,68 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class sampleTest {
     @Test
-    public void test() {
+    public void test1() {
+        //Creating two modules list for two students
+        ArrayList s1Modules = new ArrayList();
+        ArrayList s2Modules = new ArrayList();
+        //Creating 3 different course
+        CourseProgramme ECE = new CourseProgramme("ECE", new DateTime(2021, 9, 1, 0, 0), new DateTime(2022, 5, 1, 0, 0));
+        CourseProgramme EEE = new CourseProgramme("EEE", new DateTime(2021, 9, 1, 0, 0), new DateTime(2022, 5, 1, 0, 0));
+        CourseProgramme Irish = new CourseProgramme("Irish", new DateTime(2021, 9, 1, 0, 0), new DateTime(2022, 5, 1, 0, 0));
+        //Creating 5 different modules
+        Modules SOC = new Modules("System on chip", "EE-452");
+        Modules EMS = new Modules("Embedded Systems", "EE-347");
+        Modules MAE = new Modules("Mobile Architecture Engineering", "EE-517");
+        Modules SE = new Modules("Software Engineering", "CT-417");
+        Modules IRE = new Modules("Irish language", "IRE-003");
+        //Creating 2 courses lists for each student
+        ArrayList s1Courses = new ArrayList();
+        ArrayList s2Courses = new ArrayList();
+        //Adding modules to student1's modules list
+        s1Modules.add(SOC);
+        s1Modules.add(EMS);
+        s1Modules.add(MAE);
+        s1Modules.add(SE);
+        s1Modules.add(IRE);
 
+        //Adding modules to student2's modules list
+        s2Modules.add(SOC);
+        s2Modules.add(EMS);
+        s2Modules.add(MAE);
+        //Adding modules to the courses
+        ECE.addModule(SOC);
+        ECE.addModule(EMS);
+        ECE.addModule(MAE);
+        ECE.addModule(SE);
 
-        Modules m1 = new Modules("Mobile Architecture Engineering", "EE-517");
-        Modules m2 = new Modules("Software Engineering", "CT-417");
+        EEE.addModule(SOC);
+        EEE.addModule(EMS);
+        EEE.addModule(MAE);
 
-        CourseProgramme c1 = new CourseProgramme("ECE", new DateTime(2021, 9, 1, 0, 0), new DateTime(2022, 6, 1, 0, 0));
-        CourseProgramme c2 = new CourseProgramme("EEE", new DateTime(2021, 9, 1, 0, 0), new DateTime(2022, 6, 1, 0, 0));
-        ArrayList courses = new ArrayList();
-        c1.addModule(m1);
-        c1.addModule(m2);
-        c2.addModule(m1);
-        courses.add(c1);
-        courses.add(c2);
-        Student s1 = new Student("JP", new DateTime(1999, 12, 20, 0, 0), 17111111, courses );
-        m1.addStudent(s1);
-        System.out.println(m1.getStudents());
-        System.out.println(m1.getStudents().get(0).getUsername());
-        System.out.println(s1.getCourses());
-        System.out.print("Hello");
+        Irish.addModule(IRE);
+        //Adding the courses to each students course list
+        s1Courses.add(ECE);
+        s1Courses.add(Irish);
+        s2Courses.add(EEE);
+        //Creating two students
+        Student s1 = new Student("JP Byrne", new DateTime(1999, 12, 2, 0, 0), 18391636, s1Courses, s1Modules );
+        Student s2 = new Student("Eoin Daly", new DateTime(2000, 1, 20, 0, 0), 12345678, s2Courses, s2Modules );
+        //adding students to the modules
+        SOC.addStudent(s1);
+        SOC.addStudent(s2);
+        EMS.addStudent(s1);
+        EMS.addStudent(s2);
+        MAE.addStudent(s1);
+        MAE.addStudent(s2);
+        SE.addStudent(s1);
+        IRE.addStudent(s1);
+        //This test will pass
+        assertEquals(SOC.getStudents().get(0).getName(), "JP Byrne");
+        assertEquals(SOC.getStudents().get(1).getUsername(), "EoinDaly21");
+
     }
-
 }

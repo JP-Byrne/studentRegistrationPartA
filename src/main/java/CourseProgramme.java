@@ -4,20 +4,20 @@ import java.util.List;
 
 public class CourseProgramme {
 
-    private final String name;
+    private final String courseName;
     List<Modules> modules = new ArrayList<Modules>();
     List<Student> students = new ArrayList<Student>();
     private final DateTime startDate;
     private final DateTime endDate;
 
-    public CourseProgramme(String name, DateTime startDate, DateTime endDate) {
-        this.name = name;
+    public CourseProgramme(String courseName, DateTime startDate, DateTime endDate) {
+        this.courseName = courseName;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
     public String getName() {
-        return name;
+        return courseName;
     }
 
     public DateTime getEndDate() {
@@ -42,6 +42,6 @@ public class CourseProgramme {
 
     @Override
     public String toString(){
-        return name;
+        return courseName;
     }
 }
