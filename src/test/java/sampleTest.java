@@ -63,8 +63,9 @@ public class sampleTest {
         SE.addStudent(s1);
         IRE.addStudent(s1);
         //This test will pass
-        assertEquals(SOC.getStudents().get(0).getName(), "JP Byrne");
-        assertEquals(SOC.getStudents().get(1).getUsername(), "EoinDaly21");
+        //assertEquals(SOC.getStudents().get(0).getName(), "JP Byrne");
+        //This test will fail
+        assertEquals(SOC.getStudents().get(1).getUsername(), "EoinDaly 21");
 
     }
 }
